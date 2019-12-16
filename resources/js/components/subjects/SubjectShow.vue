@@ -11,7 +11,7 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <!-- <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture"> -->
+              <!-- <profile class="profile-user-profile profile-responsive profile-circle" src="../../dist/profile/user4-128x128.jpg" alt="User profile picture"> -->
 
               <h3 class="profile-username text-center">{{ subject.name }}</h3>
 
@@ -54,7 +54,7 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <!-- <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image"> -->
+                    <!-- <profile class="profile-circle profile-bordered-sm" src="../../dist/profile/user1-128x128.jpg" alt="user image"> -->
                     <span class="username">
                       <a href="#">Jonathan Burke Jr.</a>
                       <a href="#" class="pull-right btn-box-tool">
@@ -97,7 +97,7 @@
                 <!-- Post -->
                 <div class="post clearfix">
                   <div class="user-block">
-                    <!-- <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image"> -->
+                    <!-- <profile class="profile-circle profile-bordered-sm" src="../../dist/profile/user7-128x128.jpg" alt="User Image"> -->
                     <span class="username">
                       <a href="#">Sarah Ross</a>
                       <a href="#" class="pull-right btn-box-tool">
@@ -134,7 +134,7 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <!-- <img class="img-circle img-bordered-sm" src="../../dist/img/user6-128x128.jpg" alt="User Image"> -->
+                    <!-- <profile class="profile-circle profile-bordered-sm" src="../../dist/profile/user6-128x128.jpg" alt="User Image"> -->
                     <span class="username">
                       <a href="#">Adam Jones</a>
                       <a href="#" class="pull-right btn-box-tool">

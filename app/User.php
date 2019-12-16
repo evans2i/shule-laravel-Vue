@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Staff;
 use App\Models\Student;
 use Illuminate\Support\Str;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
@@ -14,6 +15,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    use HasApiTokens, Notifiable;
+    use SoftDeletes;
+    use LaratrustUserTrait;
+    use Notifiable;
+
     protected static function boot()
     {
         parent::boot();
@@ -27,9 +34,6 @@ class User extends Authenticatable
         return 'slug';
     }
 
-    use SoftDeletes;
-    use LaratrustUserTrait;
-    use Notifiable;
 
     /**
      * The attributes that are mass assignable.

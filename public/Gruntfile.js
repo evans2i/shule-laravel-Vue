@@ -167,8 +167,8 @@ module.exports = function (grunt) { // jshint ignore:line
         dest        : 'dist/css/alt/AdminLTE-without-plugins.css',
         replacements: [
           {
-            from: '../img',
-            to  : '../../img'
+            from: '../profile',
+            to  : '../../profile'
           }
         ]
       },
@@ -177,8 +177,8 @@ module.exports = function (grunt) { // jshint ignore:line
         dest        : 'dist/css/alt/AdminLTE-without-plugins.min.css',
         replacements: [
           {
-            from: '../img',
-            to  : '../../img'
+            from: '../profile',
+            to  : '../../profile'
           }
         ]
       }
@@ -204,9 +204,9 @@ module.exports = function (grunt) { // jshint ignore:line
         files: [
           {
             expand: true,
-            cwd   : 'build/img/',
+            cwd   : 'build/profile/',
             src   : ['**/*.{png,jpg,gif,svg,jpeg}'],
-            dest  : 'dist/img/'
+            dest  : 'dist/profile/'
           }
         ]
       }
@@ -265,10 +265,10 @@ module.exports = function (grunt) { // jshint ignore:line
     },
 
     // Delete images in build directory
-    // After compressing the images in the build/img dir, there is no need
+    // After compressing the images in the build/profile dir, there is no need
     // for them
     clean: {
-      build: ['build/img/*']
+      build: ['build/profile/*']
     }
   });
 

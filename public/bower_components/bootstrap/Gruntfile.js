@@ -314,7 +314,7 @@ module.exports = function (grunt) {
     htmllint: {
       options: {
         ignore: [
-          'Element "img" is missing required attribute "src".'
+          'Element "profile" is missing required attribute "src".'
         ],
         noLangDetect: true
       },

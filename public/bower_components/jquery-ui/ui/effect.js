@@ -1208,7 +1208,7 @@ $.extend( $.effects, {
 			placeholder = $( "<" + element[ 0 ].nodeName + ">" ).insertAfter( element ).css( {
 
 				// Convert inline to inline block to account for inline elements
-				// that turn to inline block based on content (like img)
+				// that turn to inline block based on content (like profile)
 				display: /^(inline|ruby)/.test( element.css( "display" ) ) ?
 					"inline-block" :
 					"block",

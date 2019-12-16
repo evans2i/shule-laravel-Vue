@@ -1,13 +1,14 @@
+
 export default [
     // { path: '/dashboard', component:  require('./components/Dashboard.vue').default },
-    // { path: '/profile', component:  require('./components/Profile.vue').default },
     {path: '/students',component: require('./components/Student.vue').default},
     {path: '/addstudents',component: require('./components/students/AddStudent.vue').default},
     {path: '/students/:slug',component: require('./components/students/StudentShow.vue').default},
     
     
     {path: '/users',component: require('./components/User.vue').default},
-    {path: '/profile',component: require('./components/Profile.vue').default},
+
+    {path: '/app-profile',component: require('./components/Profile.vue').default},
 
     {
         path: '/staffs',
@@ -42,6 +43,23 @@ export default [
     {
         path: '/subjects/:slug',
         component: require('./components/subjects/SubjectShow.vue').default
+    },
+
+
+    {
+        path: '/passport-clients',
+        component: require('./components/passport/Clients.vue').default
+    },
+
+
+    {
+        path:'/authorized-clients',
+        component:require('./components/passport/AuthorizedClients.vue').default
+    },
+
+    {
+        path:'/access-tokens',
+        component:require('./components/passport/PersonalAccessTokens.vue').default
     },
 
 
