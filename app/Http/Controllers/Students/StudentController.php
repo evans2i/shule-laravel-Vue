@@ -21,6 +21,11 @@ use App\Http\Resources\SubjectResource;
 
 class StudentController extends ApiController
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -75,11 +80,11 @@ class StudentController extends ApiController
         ];
         $password1 = 'namespace';
         $input['password'] = Hash::make($password1);
-        if ($request['img'] != null) {
+        if ($request['profile'] != null) {
             $name = time() . '.' . explode('/', explode(':', substr($request->img, 0, strpos($request->img, ';')))[1])[1];
-            \Image::make($request->img)->save(public_path('img/profile/') . $name);
-            $request->merge(['img' => $name]);
-            $input['img'] = $name;
+            \Image::make($request->img)->save(public_path('profile/profile/') . $name);
+            $request->merge(['profile' => $name]);
+            $input['profile'] = $name;
         }
 
         $user = User::create($input);

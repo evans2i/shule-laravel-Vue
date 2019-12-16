@@ -5,15 +5,18 @@ namespace App\Http\Controllers\Users;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\ApiController;
+use Image;
+
 
 class UserController extends ApiController
 {
-    /*  public function __construct()
+    public function __construct()
     {
-        $this->middleware('auth::api');
-    }*/
+        $this->middleware('auth:api');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,6 +27,79 @@ class UserController extends ApiController
         // $users = User::all();
         $users = UserResource::collection(User::latest()->get());
         return $users;
+    }
+
+    public function getauth()
+    {
+//        $data = auth('api')->user();
+
+        $data =Auth::user();
+        return $data;
+    }
+
+    public function postauth(Request $request)
+    {
+//        $user = auth('api')->user();
+        $user = Auth::user();
+
+        $rules = [
+            'email' => 'email|unique:users,email,' . $user->id,
+        ];
+        $this->validate($request, $rules);
+//        dd($request->all());
+
+
+        if ($request->has('name') && $request->name != null) {
+            $user->name = $request->name;
+        }
+        if ($request->has('email') && $user->email != $request->email && $request->email != null) {
+            $user->email = $request->email;
+        }
+
+        if ($request->has('last_name') && $request->last_name != null) {
+            $user->last_name = $request->last_name;
+        }
+        if ($request->has('middle_name') && $request->middle_name != null) {
+            $user->middle_name = $request->middle_name;
+        }
+
+        if ($request->has('gender') && $request->gender != null) {
+            $user->gender = $request->gender;
+
+        }
+        if ($request->has('address') && $request->address != null) {
+            $user->address = $request->address;
+        }
+        if ($request->has('phone') && $request->phone != null) {
+            $user->phone = $request->phone;
+        }
+
+        if ($request->has('password') && $request->password != null) {
+            $password = Hash::make($request->password);
+            $user->password = $password;
+        }
+
+        $current_img = $user->img;
+        if ($request->img != $current_img && $request->img != null) {
+            $image = time() . '.' . explode('/', explode(':', substr($request->img, 0, strpos($request->img, ';')))[1])[1];
+            $file =  Image::make($request->img)->save(public_path('profile/').$image);
+
+            $user->img = $image;
+
+            $currentP = public_path('profile/').$current_img;
+            if(file_exists($currentP)){
+                @unlink($currentP);
+            }
+        }
+
+
+
+        if (!$user->isDirty()) {
+            return $this->errorResponse('Nothing to update Friend', 422);
+        }
+
+        $user->update();
+        return $this->showOne($user);
     }
 
 
